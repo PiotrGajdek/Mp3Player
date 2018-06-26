@@ -14,7 +14,7 @@ namespace Mp3Player
     {
         public MediaPlayer player = new MediaPlayer();
         public bool isPlaying = false;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -125,6 +125,7 @@ namespace Mp3Player
                 label3.Text = "Następna Piosenka :";
             }
             player.Play();
+            PlayButton.BackgroundImage = Properties.Resources.pause;
         }
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
@@ -136,6 +137,7 @@ namespace Mp3Player
         private void StopButton_Click(object sender, EventArgs e)
         {
             player.Stop();
+            PlayButton.BackgroundImage = Properties.Resources.play;
             isPlaying = false;
         }
 
@@ -144,12 +146,14 @@ namespace Mp3Player
             if (isPlaying)
             {
                 player.Pause();
+                PlayButton.BackgroundImage = Properties.Resources.play;
                 isPlaying = false;
 
             }
             else
             {
                 player.Play();
+                PlayButton.BackgroundImage = Properties.Resources.pause;
                 isPlaying = true;
             }
         }
