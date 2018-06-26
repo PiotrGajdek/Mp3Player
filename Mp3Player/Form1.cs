@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Mp3Player
 {
@@ -63,9 +64,9 @@ namespace Mp3Player
 
         private void AddFilesButton_Click(object sender, EventArgs e)
         {
-            if (openFilesDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                playlist.Items.AddRange(openFilesDialog.FileNames);
+                playlist.Items.AddRange(openFileDialog1.FileNames);
             }
         }
 
