@@ -57,20 +57,23 @@ namespace Mp3Player
 
         private void Mute()
         {
-            SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
-               (IntPtr)APPCOMMAND_VOLUME_MUTE);
+            //SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
+            //    (IntPtr)APPCOMMAND_VOLUME_MUTE);
+            player.Volume = 0;
         }
 
         private void VolDown()
         {
-            SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
-               (IntPtr)APPCOMMAND_VOLUME_DOWN);
+            //SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
+            //    (IntPtr)APPCOMMAND_VOLUME_DOWN);
+            player.Volume = player.Volume - 0.05;
         }
 
         private void VolUp()
         {
-            SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
-               (IntPtr)APPCOMMAND_VOLUME_UP);
+            //SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
+            //    (IntPtr)APPCOMMAND_VOLUME_UP);
+            player.Volume = player.Volume + 0.05;
         }
 
         private void VolUpButton_Click(object sender, EventArgs e)
