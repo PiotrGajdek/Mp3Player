@@ -65,6 +65,16 @@ namespace Mp3Player
             {
                 playlist.Items.AddRange(openFileDialog1.FileNames);
             }
+
+            if (playlist.SelectedIndex + 1 <= playlist.Items.Count - 1)
+            {
+                Uri nextSong = new Uri(playlist.Items[playlist.SelectedIndex + 1].ToString());
+                label3.Text = "Następna Piosenka : " + HttpUtility.UrlDecode(nextSong.Segments[nextSong.Segments.Length - 1]).ToString();
+            }
+            else
+            {
+                label3.Text = "Następna Piosenka :";
+            }
         }
 
         private void AddFolderButton_Click(object sender, EventArgs e)
@@ -79,6 +89,27 @@ namespace Mp3Player
                         playlist.Items.AddRange(Directory.GetFiles(path));
                     });
             }
+        }
+        public void playSong(int index)
+        {
+            Uri currentSong = new Uri(playlist.Items[index].ToString());
+            player.Open(currentSong);
+            label2.Text = "Odtwarzana Piosenka : " + HttpUtility.UrlDecode(currentSong.Segments[currentSong.Segments.Length - 1]).ToString();
+            if (playlist.SelectedIndex + 1 <= playlist.Items.Count - 1)
+            {
+                Uri nextSong = new Uri(playlist.Items[playlist.SelectedIndex + 1].ToString());
+                label3.Text = "Następna Piosenka : " + HttpUtility.UrlDecode(nextSong.Segments[nextSong.Segments.Length - 1]).ToString();
+            }
+            else
+            {
+                label3.Text = "Następna Piosenka :";
+            }
+            player.Play();
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            playSong(playlist.SelectedIndex);
         }
     }
 }
