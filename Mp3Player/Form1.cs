@@ -20,6 +20,7 @@ namespace Mp3Player
             IntPtr wParam, IntPtr lParam);
         
         public MediaPlayer player = new MediaPlayer();
+        public bool isPlaying = false;
 
         public Form1()
         {
@@ -110,6 +111,56 @@ namespace Mp3Player
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             playSong(playlist.SelectedIndex);
+            isPlaying = true;
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            player.Stop();
+            isPlaying = false;
+        }
+
+        private void PlayButton_Click(object sender, EventArgs e)
+        {
+            if (isPlaying)
+            {
+                player.Pause();
+                isPlaying = false;
+
+            }
+            else
+            {
+                player.Play();
+                isPlaying = true;
+            }
+        }
+
+         private void NextButton_Click(object sender, EventArgs e)
+        {
+            if (playlist.SelectedIndex + 1 <= playlist.Items.Count - 1)
+            {
+                playlist.SelectedIndex = playlist.SelectedIndex + 1;
+                playSong(playlist.SelectedIndex);
+            }
+            else
+            {
+                playlist.SelectedIndex = 0;
+                playSong(playlist.SelectedIndex);
+            }
+        }
+
+        private void PrevButton_Click(object sender, EventArgs e)
+        {
+            if (playlist.SelectedIndex - 1 >= 0)
+            {
+                playlist.SelectedIndex = playlist.SelectedIndex - 1;
+                playSong(playlist.SelectedIndex);
+            }
+            else
+            {
+                playlist.SelectedIndex = playlist.Items.Count - 1;
+                playSong(playlist.SelectedIndex);
+            }
         }
     }
 }

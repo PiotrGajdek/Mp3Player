@@ -94,6 +94,7 @@
             this.StopButton.TabIndex = 21;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // AddFolderButton
             // 
@@ -132,6 +133,7 @@
             this.PrevButton.TabIndex = 17;
             this.PrevButton.Text = "Poprz.";
             this.PrevButton.UseVisualStyleBackColor = true;
+            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
             // NextButton
             // 
@@ -141,6 +143,7 @@
             this.NextButton.TabIndex = 16;
             this.NextButton.Text = "Nast.";
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // PlayButton
             // 
@@ -150,6 +153,7 @@
             this.PlayButton.TabIndex = 15;
             this.PlayButton.Text = "Play/Pause";
             this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
             // label1
             // 
