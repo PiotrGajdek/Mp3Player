@@ -20,7 +20,7 @@ namespace Mp3Player
             InitializeComponent();
             player.MediaOpened += new System.EventHandler(this.MediaOpened);
             player.MediaEnded += new System.EventHandler(this.MediaEnded);
-            timer1.Interval = 1000;
+            timer1.Interval = 500;
         }
 
         public void MediaOpened(object sender, EventArgs e)

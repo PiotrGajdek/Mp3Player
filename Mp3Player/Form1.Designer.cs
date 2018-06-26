@@ -171,10 +171,16 @@
             this.playlist.Name = "playlist";
             this.playlist.Size = new System.Drawing.Size(399, 368);
             this.playlist.TabIndex = 13;
+            this.playlist.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Multiselect = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
