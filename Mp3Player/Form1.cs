@@ -20,6 +20,8 @@ namespace Mp3Player
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessageW(IntPtr hWnd, int Msg,
             IntPtr wParam, IntPtr lParam);
+        
+        public MediaPlayer player = new MediaPlayer();
 
         public Form1()
         {
@@ -57,6 +59,28 @@ namespace Mp3Player
         private void MuteButton_Click(object sender, EventArgs e)
         {
             Mute();
+        }
+
+        private void AddFilesButton_Click(object sender, EventArgs e)
+        {
+            if (openFilesDialog.ShowDialog() == DialogResult.OK)
+            {
+                playlist.Items.AddRange(openFilesDialog.FileNames);
+            }
+        }
+
+        private void AddFolderButton_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                playlist.Items.AddRange(Directory.GetFiles(folderBrowserDialog1.SelectedPath));
+                Directory.GetDirectories(folderBrowserDialog1.SelectedPath)
+                    .ToList()
+                    .ForEach((path) =>
+                    {
+                        playlist.Items.AddRange(Directory.GetFiles(path));
+                    });
+            }
         }
     }
 }

@@ -103,6 +103,7 @@
             this.AddFolderButton.TabIndex = 20;
             this.AddFolderButton.Text = "Dodaj folder";
             this.AddFolderButton.UseVisualStyleBackColor = true;
+            this.AddFolderButton.Click += new System.EventHandler(this.AddFolderButton_Click);
             // 
             // AddFilesButton
             // 
@@ -112,6 +113,7 @@
             this.AddFilesButton.TabIndex = 19;
             this.AddFilesButton.Text = "Dodaj pliki";
             this.AddFilesButton.UseVisualStyleBackColor = true;
+            this.AddFilesButton.Click += new System.EventHandler(this.AddFilesButton_Click);
             // 
             // label2
             // 
