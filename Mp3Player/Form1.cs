@@ -43,5 +43,20 @@ namespace Mp3Player
             SendMessageW(this.Handle, WM_APPCOMMAND, this.Handle,
                (IntPtr)APPCOMMAND_VOLUME_UP);
         }
+
+        private void VolUpButton_Click(object sender, EventArgs e)
+        {
+            VolUp();
+        }
+
+        private void VolDownButton_Click(object sender, EventArgs e)
+        {
+            VolDown();
+        }
+
+        private void MuteButton_Click(object sender, EventArgs e)
+        {
+            Mute();
+        }
     }
 }

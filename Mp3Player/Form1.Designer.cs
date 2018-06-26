@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MuteButton = new System.Windows.Forms.Button();
             this.VolDownButton = new System.Windows.Forms.Button();
             this.VolUpButton = new System.Windows.Forms.Button();
@@ -41,6 +42,9 @@
             this.PlayButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.playlist = new System.Windows.Forms.ListBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // MuteButton
@@ -51,6 +55,7 @@
             this.MuteButton.TabIndex = 25;
             this.MuteButton.Text = "Mute";
             this.MuteButton.UseVisualStyleBackColor = true;
+            this.MuteButton.Click += new System.EventHandler(this.MuteButton_Click);
             // 
             // VolDownButton
             // 
@@ -60,6 +65,7 @@
             this.VolDownButton.TabIndex = 24;
             this.VolDownButton.Text = "Vol Down";
             this.VolDownButton.UseVisualStyleBackColor = true;
+            this.VolDownButton.Click += new System.EventHandler(this.VolDownButton_Click);
             // 
             // VolUpButton
             // 
@@ -69,6 +75,7 @@
             this.VolUpButton.TabIndex = 23;
             this.VolUpButton.Text = "Vol Up";
             this.VolUpButton.UseVisualStyleBackColor = true;
+            this.VolUpButton.Click += new System.EventHandler(this.VolUpButton_Click);
             // 
             // label3
             // 
@@ -159,6 +166,10 @@
             this.playlist.Size = new System.Drawing.Size(399, 368);
             this.playlist.TabIndex = 13;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +210,9 @@
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox playlist;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
