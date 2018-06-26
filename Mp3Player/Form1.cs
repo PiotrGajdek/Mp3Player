@@ -25,6 +25,34 @@ namespace Mp3Player
         public Form1()
         {
             InitializeComponent();
+            player.MediaOpened += new System.EventHandler(this.MediaOpened);
+            player.MediaEnded += new System.EventHandler(this.MediaEnded);
+            timer1.Interval = 1000;
+        }
+
+        public void MediaOpened(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        public void MediaEnded(object sender, EventArgs e)
+        {
+            if (playlist.SelectedIndex + 1 <= playlist.Items.Count - 1)
+            {
+                playlist.SelectedIndex = playlist.SelectedIndex + 1;
+                playSong(playlist.SelectedIndex);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                if (player.NaturalDuration.HasTimeSpan)
+                {
+                    label1.Text = player.Position.ToString(@"mm\:ss") + " / " + player.NaturalDuration.TimeSpan.ToString(@"mm\:ss");
+                }
+            }
         }
 
         private void Mute()
@@ -91,6 +119,7 @@ namespace Mp3Player
                     });
             }
         }
+
         public void playSong(int index)
         {
             Uri currentSong = new Uri(playlist.Items[index].ToString());
@@ -135,7 +164,7 @@ namespace Mp3Player
             }
         }
 
-         private void NextButton_Click(object sender, EventArgs e)
+        private void NextButton_Click(object sender, EventArgs e)
         {
             if (playlist.SelectedIndex + 1 <= playlist.Items.Count - 1)
             {
@@ -162,5 +191,6 @@ namespace Mp3Player
                 playSong(playlist.SelectedIndex);
             }
         }
+
     }
 }
